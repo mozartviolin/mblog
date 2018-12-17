@@ -72,14 +72,10 @@ function del(no){
 <h2>Images</h2>
 
 <div id="imgintrod">
-<p>이미지 앨범입니다.</p>
+<p>이미지 게시판입니다.</p>
 </div>
 
 <div class="container">
-
-<h3>
-
-이미지게시판</h3>
 
   <TABLE class="table table-striped">
     <thead>
