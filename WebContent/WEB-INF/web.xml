@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>mvc_webtest</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  
+  <filter>
+  	<filter-name>adminLogin</filter-name>
+  	<filter-class>utility.AdminLoginCheckFilter</filter-class>
+  </filter> 
+  
+  <filter-mapping>
+  	<filter-name>adminLogin</filter-name>
+  	<url-pattern>/admin/*</url-pattern>  
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>adminLogin</filter-name>
+  	<url-pattern>/team/*</url-pattern>  
+  </filter-mapping>
+  
+<!--   <filter-mapping>
+  	<filter-name>adminLogin</filter-name>
+  	<url-pattern>/member/read.do</url-pattern>  
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>adminLogin</filter-name>
+  	<url-pattern>/member/update.do</url-pattern>  
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>adminLogin</filter-name>
+  	<url-pattern>/member/delete.do</url-pattern>  
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>adminLogin</filter-name>
+  	<url-pattern>/member/updateFile.do</url-pattern>  
+  </filter-mapping>
+ -->
+
+  <filter>
+  	<filter-name>memberLogin</filter-name>
+  	<filter-class>utility.MemberLoginCheckFilter</filter-class>
+  </filter>
+  
+   <filter-mapping>
+  	<filter-name>memberLogin</filter-name>
+  	<url-pattern>/member/read.do</url-pattern>  
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>memberLogin</filter-name>
+  	<url-pattern>/member/update.do</url-pattern>  
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>memberLogin</filter-name>
+  	<url-pattern>/member/delete.do</url-pattern>  
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>memberLogin</filter-name>
+  	<url-pattern>/member/updateFile.do</url-pattern>  
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>memberLogin</filter-name>
+  	<url-pattern>/team/*</url-pattern>  
+  </filter-mapping>
+  
+  
+  
+  <servlet>
+  	<servlet-name>controller</servlet-name>
+  	<servlet-class>controller.Controller</servlet-class>
+  	<init-param>
+  		<param-name>configFile</param-name>
+  		<param-value>D:/javasecurity/web/workspace_mvc/mvc_webtest/WebContent/WEB-INF/config/action-config.properties</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>templatePage</param-name>
+  		<param-value>/template/template.jsp</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>controller</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>filedown</servlet-name>
+  	<servlet-class>utility.FileDownload</servlet-class>
+  </servlet>  
+  
+  <servlet-mapping>
+  	<servlet-name>filedown</servlet-name>
+  	<url-pattern>/download</url-pattern>  
+  </servlet-mapping>
+  
+  <!-- *********************************************************************** -->
+  <!-- CKFINDER start -->
+  <!-- *********************************************************************** -->
+	  <servlet>
+	    <servlet-name>ConnectorServlet</servlet-name>
+	    <servlet-class>com.ckfinder.connector.ConnectorServlet</servlet-class>
+	    <init-param>
+	      <param-name>XMLConfig</param-name>
+	      <param-value>/WEB-INF/ckfinder-config.xml</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>debug</param-name>
+	      <param-value>false</param-value>
+	    </init-param>
+	    <load-on-startup>1</load-on-startup>
+	  </servlet>
+	 
+	  <servlet-mapping>
+	    <servlet-name>ConnectorServlet</servlet-name>
+	    <url-pattern>
+	         /ckfinder/core/connector/java/connector.java
+	    </url-pattern>
+	  </servlet-mapping>
+  
+  <!-- *********************************************************************** -->
+  <!-- CKFINDER end -->
+  <!-- *********************************************************************** -->	  
+
+  
+</web-app>
